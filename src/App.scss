@@ -1,0 +1,12 @@
+@use './styles/partials/global' as *;
+@use  './styles/partials/mixins' as *;
+@use './styles/partials/variables' as *;
+
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  @include flex(center, center);
+  flex-direction: column;
+}
+
