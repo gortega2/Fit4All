@@ -1,0 +1,51 @@
+import axios from "axios"
+
+const axiosInstance = axios.create({
+    baseURL: import.meta.env.VITE_API_URL + 'api/'
+})
+
+export default class API {
+    static async getTags(){
+        const response = await axiosInstance.get("tags/");
+        return response.data;
+    }
+
+    static async getEquipment(){
+        const response = await axiosInstance.get("equipment/")
+    }
+
+    static async getExercises(){
+        const response = await axiosInstance.get("exercises/");
+        return response.data;
+    }
+
+    static async getSingleExercise(id){
+        const response = await axiosInstance.get(`exercises/${id}/`);
+        return response.data;
+    }
+
+    static async deleteExercise(id){
+        const response = await axiosInstance.delete(`exercises/${id}`);
+        return response.data;
+    }
+
+    static async getGuides(){
+        const response = await axiosInstance.get("guides/");
+        return response.data;
+    }
+
+    static async getSingleGuide(id){
+        const response = await axiosInstance.get(`guides/${id}`);
+    }
+
+    static async updateGuide(id){
+        const response = await axiosInstance.put(`guides/${id}`)
+        return response.data;
+    }
+
+    static async deleteGuide(id){
+        const response = await axiosInstance.delete(`guides/${id}`)
+        return response.data;
+    }
+
+}
