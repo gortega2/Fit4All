@@ -1,5 +1,7 @@
+import GuideList from "../../componets/GuideList/GuideList"
+
 export default function HomePage(){
     return (
-        <h1>Hello World</h1>
+        <GuideList />
     )
 }

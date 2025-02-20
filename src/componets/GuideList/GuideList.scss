@@ -1,0 +1,39 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.guide-list{
+    @include flex(center, center);
+    flex-direction: column;
+    background-color: $alt-background;
+    width: 100%;
+    padding: 16px;
+
+    &__header-ctr{
+        @include flex(start, center);
+        width: 100%;
+        gap: 4px;
+
+    }
+
+    &__header-button{
+        background-color: #4F5055;
+        color: white;
+        padding: 0px 12px;
+        padding-top: 2px;
+
+    }
+
+    &__guide-ctr{
+        @include flex(start, center);
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    &__guide{
+        display: flex;
+        background-color: $main-background;
+        color: white;
+        width: 100%;
+    }
+}
