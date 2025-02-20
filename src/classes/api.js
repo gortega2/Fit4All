@@ -37,6 +37,7 @@ export default class API {
 
     static async getSingleGuide(id){
         const response = await axiosInstance.get(`guides/${id}`);
+        return response.data;
     }
 
     static async updateGuide(id){
