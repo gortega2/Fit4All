@@ -28,7 +28,7 @@ export default function GuideList(){
             </div>
             <div className='guide-list__guide-ctr'>
                 {guides.map( (guide) => {
-                    return (<GuideItem guide={guide}/>)
+                    return (<GuideItem key={guide.id} guide={guide}/>)
                 })}
             </div>
 

@@ -17,7 +17,7 @@ export default function GuideItem({guide}){
             </div>
             <div className='guide-item__tags-ctr'>
                 {guide.guide_tag.map((tag) => {
-                    return (<p className='tags'>{tag}</p>)
+                    return (<p key={tag} className='tags'>{tag}</p>)
                 })}
                 
             </div>
