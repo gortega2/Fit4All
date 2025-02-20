@@ -40,6 +40,11 @@
 
     }
 
+    &__description{
+        @include flex(start, center);
+        width: 100%
+    }
+
     &:hover{
        background-color: $on-hover;
     }

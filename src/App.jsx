@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage/HomePage'
 import Header from './componets/Header/Header'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ViewGuidePage from './pages/ViewGuidePage/ViewGuidePage'
 
 function App() {
  
@@ -15,6 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<HomePage />} />
+        <Route path='/guides/:id' element={<ViewGuidePage />} />
       </Routes>
     </BrowserRouter>
   )
