@@ -10,4 +10,32 @@
     @include flex(start, center);
     gap: 12px;
     touch-action: none;
+
+    &__info-ctr{
+        @include flex(center, start);
+        flex-direction: column;
+        flex-grow: 1;
+        gap: 4px;
+    }
+
+    &__text-ctr{
+        display: flex;
+        gap: 6px;
+        color: lightgray;
+    }
+
+    &__thumbnail{
+        height: 60px;
+        width: 60px;
+    }
+
+    &__button-ctr{
+        display: flex;
+        gap: 6px;
+
+        & *{
+            @include flex(center, center)
+        }
+    }
+
 }

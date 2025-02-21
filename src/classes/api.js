@@ -50,4 +50,9 @@ export default class API {
         return response.data;
     }
 
+    static async getAuthors(){
+        const response = await axiosInstance.get(`authors/`)
+        return response.data;
+    }
+
 }

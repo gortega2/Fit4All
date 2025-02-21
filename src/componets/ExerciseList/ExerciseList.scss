@@ -10,4 +10,18 @@
     padding: 12px;
     flex-direction: column;
     gap: 20px;
+    position: relative;
+
+    &__add-button{
+        position: absolute;
+        top: -20px;
+        right: -30px;
+        height: 10px;
+        padding: 4px;
+        border-radius: 6px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    
 }
