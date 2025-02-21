@@ -1,6 +1,6 @@
 import './GuideItem.scss';
 import { Link } from 'react-router-dom';
- const mockPfp = 'http://127.0.0.1:5500/static/images/default-pfp.jpg'
+ const mockPfp = 'http://127.0.0.1:8000/static/images/default-pfp.jpg'
  const mockRating = '100%'
 
 

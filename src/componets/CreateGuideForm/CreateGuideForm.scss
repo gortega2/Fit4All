@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.guide-form{
+    @include flex(center, center);
+    flex-direction: column;
+    max-width: 1280px;
+    width: 100%;
+    color: white;
+    background-color: $alt-background;
+    max-width: $desktop-breakpoint;
+    
+}
