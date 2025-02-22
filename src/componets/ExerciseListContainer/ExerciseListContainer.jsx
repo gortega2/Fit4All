@@ -56,10 +56,10 @@ export default function ExerciseListContainer() {
                 id: blocks.length + 1,
                 title: addedExercise.name,
                 exercise: addedExercise,
-                reps: 0,
-                weight: 0,
-                duration: 0,
-                sets: 2,
+                reps: 1,
+                weight: 1,
+                duration: 1,
+                sets: 1,
 
             }]
         })
@@ -70,7 +70,6 @@ export default function ExerciseListContainer() {
         for (let i =0; i < blocks.length; i++){
             blocks[i].id = i;
         }
-
     }
 
     function deleteBlock(id){
@@ -79,7 +78,6 @@ export default function ExerciseListContainer() {
         const newBlock = blocks.filter( block => block.id !== id)
         updateIds()
         console.log('new block', newBlock)
-
         setBlock(newBlock)
 
     }

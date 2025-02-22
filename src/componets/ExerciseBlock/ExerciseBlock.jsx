@@ -2,8 +2,15 @@ import './ExerciseBlock.scss';
 
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import NumberField from '../NumberField/NumberField';
+import { useState } from 'react';
 
 export default function ExerciseBlock( {id, block, deleteFunction} ){
+
+    const [sets, setSets] = useState(block.sets);
+    const [reps, setReps] = useState(block.reps);
+    const [weight, setWeight] = useState(block.weight);
+    const [duration, setDuration] = useState(block.duration);
 
    const {attributes, listeners, setNodeRef, transform, transition}
     = useSortable({id})
@@ -29,18 +36,18 @@ export default function ExerciseBlock( {id, block, deleteFunction} ){
         <div className='block__info-ctr'>
             <h4>{block.exercise.name}</h4>
             <div className='block__text-ctr'>
-                <p>Weight: {block.weight}lbs</p>
+                <NumberField label='Weight(lbs.)' value={block.weight} onChange={setWeight} />
                 <p>|</p>
-                <p>Duration: {block.duration}M</p>
+                <NumberField label='Duration(M)' value={block.duration} onChange={setDuration} />
                 <p>|</p>
-                <p>Sets: {block.sets}</p>
+                <NumberField label='Sets' value={block.sets} onChange={setSets} />
                 <p>|</p>
-                <p>Reps: {block.reps}</p>
+                <NumberField label='Reps' value={block.reps} onChange={setReps} />
 
             </div>
         </div>
         <div className='block__button-ctr'>
-            <div className='cta-action cta-action--secondary'>...</div>
+            {/* <div className='cta-action cta-action--secondary'>...</div> */}
             <div className='cta-action cta-action--routine' onMouseDown={() => {deleteFunction(id)}}>X</div>
         </div>
         

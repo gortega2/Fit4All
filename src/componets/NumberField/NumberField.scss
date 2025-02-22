@@ -1,0 +1,10 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.number-field{
+    @include flex(center, center);
+    flex-direction: column;
+    width: auto;
+    gap: 4px;
+
+}

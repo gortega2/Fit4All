@@ -20,8 +20,10 @@
 
     &__text-ctr{
         display: flex;
+        justify-content: space-between;
         gap: 6px;
         color: lightgray;
+        width: 100%;
     }
 
     &__thumbnail{
