@@ -29,18 +29,6 @@ export default function ExerciseListContainer() {
         getExercises();
     },[])
 
-    // useEffect(() => {
-    //     const array = [];
-
-    //     exercises.forEach((exercise) => {
-    //         array.push({id: exercise.id, title: exercise.name})
-    //     })
-    //     setBlock(array);
-
-    // }, [exercises])
-
-    // console.log(exercises)
-
     const getBlockPos = id => blocks.findIndex(block =>
         block.id === id
     )
@@ -78,10 +66,18 @@ export default function ExerciseListContainer() {
 
     }
 
+    function updateIds(){
+        for (let i =0; i < blocks.length; i++){
+            blocks[i].id = i;
+        }
+
+    }
+
     function deleteBlock(id){
         console.log(id)
 
         const newBlock = blocks.filter( block => block.id !== id)
+        updateIds()
         console.log('new block', newBlock)
 
         setBlock(newBlock)
