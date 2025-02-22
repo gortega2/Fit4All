@@ -26,6 +26,10 @@
         width: 100%;
     }
 
+    &__text-ctr--start{
+        justify-content: start;
+    }
+
     &__thumbnail{
         height: 60px;
         width: 60px;

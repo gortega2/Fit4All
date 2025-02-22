@@ -12,7 +12,10 @@
 
 main{
   width: 100%;
-  max-width: $desktop-breakpoint
+  max-width: $desktop-breakpoint;
+  @include flex(start, center);
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 
