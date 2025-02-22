@@ -7,11 +7,7 @@ import API from "../../classes/api";
 export default function ExerciseListContainer() {
 
     const [exercises, setExercises] = useState([]);
-    const [blocks, setBlock] = useState([
-        { id: 1, title: 'test 1' },
-        { id: 2, title: 'test 2' },
-        { id: 3, title: 'test 3' },
-    ])
+    const [blocks, setBlock] = useState([])
     const sensors = useSensors(
         useSensor(PointerSensor, {activationConstraint: {
             distance: 5
@@ -33,17 +29,17 @@ export default function ExerciseListContainer() {
         getExercises();
     },[])
 
-    useEffect(() => {
-        const array = [];
+    // useEffect(() => {
+    //     const array = [];
 
-        exercises.forEach((exercise) => {
-            array.push({id: exercise.id, title: exercise.name})
-        })
-        setBlock(array);
+    //     exercises.forEach((exercise) => {
+    //         array.push({id: exercise.id, title: exercise.name})
+    //     })
+    //     setBlock(array);
 
-    }, [exercises])
+    // }, [exercises])
 
-    console.log(exercises)
+    // console.log(exercises)
 
     const getBlockPos = id => blocks.findIndex(block =>
         block.id === id
@@ -62,6 +58,26 @@ export default function ExerciseListContainer() {
         })
     }
 
+    function addBlock(id){
+
+        const addedExercise = exercises.find(exercise => exercise.id == id);
+        console.log(addedExercise, id)
+
+        setBlock( (blocks) => {
+            return [...blocks, {
+                id: blocks.length + 1,
+                title: addedExercise.name,
+                exercise: addedExercise,
+                reps: 0,
+                weight: 0,
+                duration: 0,
+                sets: 2,
+
+            }]
+        })
+
+    }
+
     function deleteBlock(id){
         console.log(id)
 
@@ -74,7 +90,7 @@ export default function ExerciseListContainer() {
 
     return (
         <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-            <ExerciseList blocks={blocks} deleteFunction={deleteBlock}/>
+            <ExerciseList exercises={exercises} blocks={blocks} deleteFunction={deleteBlock} addExercise={addBlock}/>
         </DndContext>)
 
 }
