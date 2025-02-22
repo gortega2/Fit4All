@@ -55,4 +55,9 @@ export default class API {
         return response.data;
     }
 
+    static async postGuide(data){
+        const response = await axiosInstance.post(`guides/`,data)
+        return response;
+    }
+
 }

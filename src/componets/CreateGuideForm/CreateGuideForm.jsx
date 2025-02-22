@@ -4,6 +4,8 @@ import ExerciseListContainer from "../ExerciseListContainer/ExerciseListContaine
 
 import { useState, useEffect } from "react";
 import Select from "react-select";
+import { useNavigate } from "react-router-dom";
+
 
 
 
@@ -16,6 +18,8 @@ export default function CreateGuideForm() {
     const [author, setAuthor] = useState("")
     const [tags, setTags] = useState([]);
     const [selectedTags, setSelectedTags] = useState([])
+    const [blocks, setBlock] = useState([])
+    const navigate = useNavigate()
 
     async function getAuthors() {
         try {
@@ -56,9 +60,49 @@ export default function CreateGuideForm() {
 
     console.log('selected tags are: ',selectedTags);
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log("do stuff")
+
+        // TODO: Do error checking for form submission
+        const routine = [];
+        const guide_tag = [];
+
+        blocks.forEach(element => {
+            const object = {
+                exercise: element.exercise.id,
+                reps: element.reps,
+                // sets: element.sets,
+                duration: element.duration,
+                weight: element.weight,
+            }
+            
+            routine.push(object)
+        });
+
+        selectedTags.forEach( (tag) => {
+            guide_tag.push(tag.value);
+        })
+
+
+        const sentObject = {
+            author: author,
+            title: title,
+            description: description,
+            guide_tag: guide_tag,
+            routine: routine
+
+
+        }
+
+        console.log(sentObject);
+
+        try{
+            const response = await API.postGuide(sentObject);
+            console.log(response);
+        } catch (error) {
+            console.error(`There was an error POSTing guide:\n${error}`)
+        }
+        
     }
 
     function handleTitleChange(event) {
@@ -93,7 +137,9 @@ export default function CreateGuideForm() {
             </label>
         </div>
         <h2>Set Routine</h2>
-        <ExerciseListContainer />
+        <ExerciseListContainer blocks={blocks} setBlock={setBlock}/>
+
+        
 
 
     </form>)

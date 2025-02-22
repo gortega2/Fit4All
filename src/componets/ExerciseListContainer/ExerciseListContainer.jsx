@@ -4,10 +4,10 @@ import { closestCorners, DndContext, KeyboardSensor, PointerSensor, TouchSensor,
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import API from "../../classes/api";
 
-export default function ExerciseListContainer() {
+export default function ExerciseListContainer({ blocks, setBlock }) {
+    
 
     const [exercises, setExercises] = useState([]);
-    const [blocks, setBlock] = useState([])
     const sensors = useSensors(
         useSensor(PointerSensor, {activationConstraint: {
             distance: 5
@@ -85,6 +85,7 @@ export default function ExerciseListContainer() {
     return (
         <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
             <ExerciseList exercises={exercises} blocks={blocks} deleteFunction={deleteBlock} addExercise={addBlock}/>
-        </DndContext>)
+        </DndContext>
+        )
 
 }

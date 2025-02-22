@@ -33,6 +33,18 @@
         height: 200px;
         resize: none;
     }
+
+    &__submit{
+        width: 100%;
+        padding: 12px;
+
+        @include tablet{
+            align-self: center;
+            width: auto;
+            
+        }
+
+    }
     
 }
 
