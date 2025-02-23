@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ViewGuidePage from './pages/ViewGuidePage/ViewGuidePage'
 import CreateGuidePage from './pages/CreateGuidePage/CreateGuidePage'
 import ViewExercisePage from './pages/ViewExercisePage/ViewExercisePage'
+import SignInPage from './pages/SignInPage/SignInPage'
 function App() {
  
 
@@ -20,6 +21,7 @@ function App() {
         <Route path='/guides/:id' element={<ViewGuidePage />} />
         <Route path='/create-guide' element={<CreateGuidePage />} />
         <Route path='/exercises/:id' element={<ViewExercisePage />} />
+        <Route path='/sign-in' element={<SignInPage />} />
       </Routes>
     </BrowserRouter>
   )

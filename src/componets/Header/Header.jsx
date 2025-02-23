@@ -18,7 +18,7 @@ export default function Header(){
                     </Link>
                     {(isSignedup) ? (<Link to='/create' className="cta-action cta-action--secondary">
                         CREATE
-                    </Link>)  : (<Link to="/sign-up" className="cta-action">
+                    </Link>)  : (<Link to="/sign-in" className="cta-action">
                         SIGN UP
                     </Link>)}
 
