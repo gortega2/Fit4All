@@ -9,6 +9,17 @@ import ReactModal from 'react-modal';
 export default function ExerciseList({ exercises, blocks, deleteFunction, addExercise }) {
 
     const [modalIsOpen, setIsOpen] = useState(false);
+    const customStyles = {
+        content: {
+          top: '50%',
+          left: '50%',
+          right: 'auto',
+          bottom: 'auto',
+          marginRight: '-50%',
+          transform: 'translate(-50%, -50%)',
+        },
+      };
+    ReactModal.setAppElement('#root');
 
     function handleOpenModal(){
         setIsOpen(true);
@@ -23,7 +34,7 @@ export default function ExerciseList({ exercises, blocks, deleteFunction, addExe
     return (
         <div className='exercise-list'>
             <h2 className='exercise-list__add-button' onClick={handleOpenModal}>+</h2>
-            <ReactModal isOpen={modalIsOpen} contentLabel='Test modal'>
+            <ReactModal isOpen={modalIsOpen} contentLabel='Test modal' style={customStyles}>
                 <ExerciseModal exercises={exercises} closeModal={handleCloseModal} addExercise={addExercise}/>
             </ReactModal>
             <SortableContext items={blocks} strategy={verticalListSortingStrategy}>

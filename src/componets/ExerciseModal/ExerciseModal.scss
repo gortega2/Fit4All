@@ -5,8 +5,9 @@
 .exercise-modal{
     @include flex(center, center);
     flex-direction: column;
-    padding: 12px;
     gap: 12px;
+    min-width: 38vw;
+    min-height: 38vh;
 
 
     &__list{
@@ -14,6 +15,7 @@
         flex-direction: column;
         height: 200px;
         overflow: scroll;
+        flex-grow:1;
     }
 
     &__exercise{
