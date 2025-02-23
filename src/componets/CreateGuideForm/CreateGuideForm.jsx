@@ -99,6 +99,7 @@ export default function CreateGuideForm() {
         try{
             const response = await API.postGuide(sentObject);
             console.log(response);
+            navigate(`/guides/${response.data.id}`)
         } catch (error) {
             console.error(`There was an error POSTing guide:\n${error}`)
         }

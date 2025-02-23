@@ -23,7 +23,7 @@ export default function ViewGuidePage() {
     async function getGuide() {
         try {
             const data = await API.getSingleGuide(id)
-            console.log(data);
+            // console.log(data);
             setGuide(data);
         } catch (error) {
             console.error(`Error fetching guide ${id}: ${error}`)
@@ -35,23 +35,23 @@ export default function ViewGuidePage() {
         setExercises(data);
     }
 
-    async function deleteGuide(){
-        try{
+    async function deleteGuide() {
+        try {
             const data = await API.deleteGuide(id)
             navigate("/")
-        } catch (error){
+        } catch (error) {
             console.error(`There was an error deleting guide ${id}\n${error}`)
         }
     }
 
-    function serializeExercise(oldRoutine){
+    function serializeExercise(oldRoutine) {
         const array = [];
-        console.log(oldRoutine)
+        // console.log(oldRoutine)
 
-        oldRoutine.forEach( (obj) => {
-            const spreadObj = {...obj}
+        oldRoutine.forEach((obj) => {
+            const spreadObj = { ...obj }
             spreadObj.exercise = exercises.find(ex => ex.id === spreadObj.exercise)
-            console.log(spreadObj)
+            // console.log(spreadObj)
             array.push(spreadObj)
         })
 
@@ -65,10 +65,16 @@ export default function ViewGuidePage() {
     }, [id])
 
     useEffect(() => {
-        (guide.routine && serializeExercise(guide.routine))
+        ((guide.routine && exercises.length) && serializeExercise(guide.routine))
+    }, [guide])
 
-    },
-        [guide])
+
+
+
+
+
+    console.log(exercises, routine)
+    
 
     return (<main>
         <section className="view-guide">
@@ -77,7 +83,7 @@ export default function ViewGuidePage() {
                     <h2>{guide.title}</h2>
                     <button onClick={() => deleteGuide()} className="cta-action">DELETE</button>
                 </div>
-                
+
                 <div className="view-guide__header-ctr">
                     <div className="view-guide__flex">
                         <img src={tempThumbnail} className="thumbnail" />

@@ -6,7 +6,7 @@ import ExerciseModal from '../ExerciseModal/ExerciseModal';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import ReactModal from 'react-modal';
 
-export default function ExerciseList({ exercises, blocks, deleteFunction, addExercise }) {
+export default function ExerciseList({ exercises, blocks, deleteFunction, addExercise, setBlock }) {
 
     const [modalIsOpen, setIsOpen] = useState(false);
     const customStyles = {
@@ -40,7 +40,7 @@ export default function ExerciseList({ exercises, blocks, deleteFunction, addExe
             <SortableContext items={blocks} strategy={verticalListSortingStrategy}>
                 {blocks.map((block) => {
                     return (<ExerciseBlock id={block.id} block={block} key={block.id} 
-                    deleteFunction={deleteFunction}/>)
+                    deleteFunction={deleteFunction} setBlock={setBlock}/>)
                 })}
             </SortableContext>
             {(blocks.length > 0 && <button type="submit" className="cta-action guide-form__submit">SUBMIT</button>)}

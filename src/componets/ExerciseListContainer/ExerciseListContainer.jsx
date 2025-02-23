@@ -53,8 +53,8 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
 
         setBlock( (blocks) => {
             return [...blocks, {
-                id: blocks.length + 1,
-                title: addedExercise.name,
+                id: blocks.length,
+                // title: addedExercise.name,
                 exercise: addedExercise,
                 reps: 1,
                 weight: 1,
@@ -84,7 +84,7 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
 
     return (
         <DndContext sensors={sensors} onDragEnd={handleDragEnd} collisionDetection={closestCorners}>
-            <ExerciseList exercises={exercises} blocks={blocks} deleteFunction={deleteBlock} addExercise={addBlock}/>
+            <ExerciseList exercises={exercises} blocks={blocks} deleteFunction={deleteBlock} addExercise={addBlock} setBlock={setBlock} />
         </DndContext>
         )
 

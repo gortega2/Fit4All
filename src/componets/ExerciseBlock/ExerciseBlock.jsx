@@ -3,9 +3,9 @@ import './ExerciseBlock.scss';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import NumberField from '../NumberField/NumberField';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function ExerciseBlock( {id, block, deleteFunction} ){
+export default function ExerciseBlock( {id, block, deleteFunction, setBlock} ){
 
     const [sets, setSets] = useState(block.sets);
     const [reps, setReps] = useState(block.reps);
@@ -23,6 +23,21 @@ export default function ExerciseBlock( {id, block, deleteFunction} ){
     function handleButtonPress(){
         console.log("Routine button pressed");
     }
+
+    useEffect(() => {
+        setBlock((prevData) => {
+            console.log(prevData, id);
+            const newData = [...prevData];
+            newData[id] = {
+                id: id,
+                reps: reps,
+                weight: weight,
+                duration: duration,
+                exercise: block.exercise
+            }
+            return newData;
+        })
+    }, [sets, reps, weight, duration])
 
 
 
