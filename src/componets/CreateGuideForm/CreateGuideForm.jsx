@@ -71,7 +71,7 @@ export default function CreateGuideForm() {
             const object = {
                 exercise: element.exercise.id,
                 reps: element.reps,
-                // sets: element.sets,
+                sets: element.sets,
                 duration: element.duration,
                 weight: element.weight,
             }

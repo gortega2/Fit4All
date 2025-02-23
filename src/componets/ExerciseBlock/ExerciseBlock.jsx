@@ -33,6 +33,7 @@ export default function ExerciseBlock( {id, block, deleteFunction, setBlock} ){
                 reps: reps,
                 weight: weight,
                 duration: duration,
+                sets: sets,
                 exercise: block.exercise
             }
             return newData;
