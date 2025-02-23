@@ -60,4 +60,18 @@ export default class API {
         return response;
     }
 
+    static async logIn(data){
+        console.log(data)
+        const response = await axiosInstance.post('log-in/', data);
+        return response;
+
+    }
+
+    static async signUp(data){
+        console.log(data)
+        const response = await axiosInstance.post('sign-up/', data)
+        return response;
+
+    }
+
 }

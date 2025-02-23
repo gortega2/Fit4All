@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./AuthForm.scss";
 import { useNavigate } from "react-router-dom";
+import API from "../../classes/api";
 
 export default function AuthForm() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -19,8 +20,41 @@ export default function AuthForm() {
       return;
     }
     setError("");
-    navigate("/");
+
+    if (isSignUp){
+      signUp();
+    } else{
+      logIn();
+    }
+    
+
   };
+
+  async function signUp(){
+    try{
+      const response = await API.signUp({username: formData.username, password: formData.password})
+      window.user = response.data;
+      navigate("/");
+    } catch (error) {
+      console.error(`There was an error signing up:\n${error}`)
+      console.log(error.response)
+      setError(`${error.response.statusText}: ${error.response.data.message}`);
+    }
+
+  }
+
+  async function logIn(){
+    try{
+      const response = await API.logIn({username: formData.username, password: formData.password})
+      window.user = response.data;
+      navigate("/");
+    } catch (error) {
+      console.error(`There was an error logging in:\n${error}`)
+      console.log(error.response)
+      setError(`${error.name}: ${error.response.data.message}`);
+    }
+
+  }
 
   return (
     <div className="auth-container">
