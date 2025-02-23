@@ -21,7 +21,7 @@ export default class API {
     }
 
     static async getSingleExercise(id){
-        const response = await axiosInstance.get(`exercises/${id}/`);
+        const response = await axiosInstance.get(`exercises/${id}`);
         return response.data;
     }
 
