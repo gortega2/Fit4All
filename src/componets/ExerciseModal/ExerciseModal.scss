@@ -23,7 +23,19 @@
         padding: 4px;
         gap: 12px;
         width: 100%;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+       
+
+        &:hover {
+            transform: scale(1.05);
+          }
+        &:active{
+            border: lightgray 1px solid;
+        }
     }
+
+
 
     &__thumbnail{
         width: 50px;
