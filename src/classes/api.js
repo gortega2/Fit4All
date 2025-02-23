@@ -36,17 +36,17 @@ export default class API {
     }
 
     static async getSingleGuide(id){
-        const response = await axiosInstance.get(`guides/${id}`);
+        const response = await axiosInstance.get(`guides/${id}/`);
         return response.data;
     }
 
     static async updateGuide(id){
-        const response = await axiosInstance.put(`guides/${id}`)
+        const response = await axiosInstance.put(`guides/${id}/`)
         return response.data;
     }
 
     static async deleteGuide(id){
-        const response = await axiosInstance.delete(`guides/${id}`)
+        const response = await axiosInstance.delete(`guides/${id}/`)
         return response.data;
     }
 

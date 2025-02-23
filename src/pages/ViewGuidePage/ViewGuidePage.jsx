@@ -5,12 +5,14 @@ import GuideItem from "../../componets/GuideItem/GuideItem";
 import './ViewGuidePage.scss';
 import ViewRoutine from "../../componets/ViewRoutine/ViewRoutine";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ViewGuidePage() {
 
     const tempThumbnail = 'http://127.0.0.1:8000/static/images/default-pfp.jpg'
     const mockRating = 4.4
+    const navigate = useNavigate();
 
 
     const [guide, setGuide] = useState("");
@@ -31,6 +33,15 @@ export default function ViewGuidePage() {
     async function getExercises() {
         const data = await API.getExercises();
         setExercises(data);
+    }
+
+    async function deleteGuide(){
+        try{
+            const data = await API.deleteGuide(id)
+            navigate("/")
+        } catch (error){
+            console.error(`There was an error deleting guide ${id}\n${error}`)
+        }
     }
 
     function serializeExercise(oldRoutine){
@@ -62,7 +73,11 @@ export default function ViewGuidePage() {
     return (<main>
         <section className="view-guide">
             <div className="view-guide__header">
-                <h2>{guide.title}</h2>
+                <div className="view-guide__header-ctr">
+                    <h2>{guide.title}</h2>
+                    <button onClick={() => deleteGuide()} className="cta-action">DELETE</button>
+                </div>
+                
                 <div className="view-guide__header-ctr">
                     <div className="view-guide__flex">
                         <img src={tempThumbnail} className="thumbnail" />
