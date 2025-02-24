@@ -49,12 +49,10 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
     function addBlock(id){
 
         const addedExercise = exercises.find(exercise => exercise.id == id);
-        console.log(addedExercise, id)
 
         setBlock( (blocks) => {
             return [...blocks, {
                 id: blocks.length,
-                // title: addedExercise.name,
                 exercise: addedExercise,
                 reps: 1,
                 weight: 1,
@@ -73,11 +71,8 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
     }
 
     function deleteBlock(id){
-        console.log(id)
-
         const newBlock = blocks.filter( block => block.id !== id)
         updateIds()
-        console.log('new block', newBlock)
         setBlock(newBlock)
 
     }

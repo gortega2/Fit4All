@@ -17,7 +17,6 @@ export default function GuideList(){
         getGuideList();
     }, [])
 
-    console.log(guides)
     return (<main>
         <section className='guide-list'>
             <div className='guide-list__header-ctr'>

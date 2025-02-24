@@ -1,8 +1,6 @@
 import './GuideItem.scss';
 import { Link } from 'react-router-dom';
  const mockPfp = 'http://127.0.0.1:8000/static/images/default-pfp.jpg'
- const mockRating = '100%'
-
 
 export default function GuideItem({guide}){
     return (
@@ -13,7 +11,7 @@ export default function GuideItem({guide}){
                     <h2 className='heading-text'>{guide.title}</h2>
                     <p>{guide.author}</p>
                 </div>
-                <p>{mockRating}</p>
+                <p>{guide.rating}</p>
             </div>
             <div className='guide-item__tags-ctr'>
                 {guide.guide_tag.map((tag) => {

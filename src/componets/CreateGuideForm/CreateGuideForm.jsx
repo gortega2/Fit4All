@@ -58,12 +58,8 @@ export default function CreateGuideForm() {
         getTags();
     }, [])
 
-    console.log('selected tags are: ',selectedTags);
-
     async function handleSubmit(event) {
         event.preventDefault();
-
-        // TODO: Do error checking for form submission
         const routine = [];
         const guide_tag = [];
 
@@ -94,11 +90,8 @@ export default function CreateGuideForm() {
 
         }
 
-        console.log(sentObject);
-
         try{
             const response = await API.postGuide(sentObject);
-            console.log(response);
             navigate(`/guides/${response.data.id}`)
         } catch (error) {
             console.error(`There was an error POSTing guide:\n${error}`)

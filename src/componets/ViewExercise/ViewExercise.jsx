@@ -2,9 +2,6 @@ import React from 'react';
 import './ViewExercise.scss';
 
 const ViewExercise = ({ data }) => {
-    const mockYoutube = "https://www.youtube.com/embed/sEfN2Gebvag?si=lINWsZJi4D2apJj9"
-    console.log(data);
-
     return (
         <div className='view-exercise'>
             <h1 className='view-exercise__header'>{data.name}</h1>

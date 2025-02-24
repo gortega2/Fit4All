@@ -37,7 +37,6 @@ export default function AuthForm() {
       navigate("/");
     } catch (error) {
       console.error(`There was an error signing up:\n${error}`)
-      console.log(error.response)
       setError(`${error.response.statusText}: ${error.response.data.message}`);
     }
 
@@ -50,7 +49,6 @@ export default function AuthForm() {
       navigate("/");
     } catch (error) {
       console.error(`There was an error logging in:\n${error}`)
-      console.log(error.response)
       setError(`${error.name}: ${error.response.data.message}`);
     }
 

@@ -23,7 +23,6 @@ export default function ViewGuidePage() {
     async function getGuide() {
         try {
             const data = await API.getSingleGuide(id)
-            // console.log(data);
             setGuide(data);
         } catch (error) {
             console.error(`Error fetching guide ${id}: ${error}`)
@@ -46,12 +45,10 @@ export default function ViewGuidePage() {
 
     function serializeExercise(oldRoutine) {
         const array = [];
-        // console.log(oldRoutine)
 
         oldRoutine.forEach((obj) => {
             const spreadObj = { ...obj }
             spreadObj.exercise = exercises.find(ex => ex.id === spreadObj.exercise)
-            // console.log(spreadObj)
             array.push(spreadObj)
         })
 
@@ -72,14 +69,6 @@ export default function ViewGuidePage() {
         }, 500)
         
     }, [guide])
-
-
-
-
-
-
-    console.log(exercises, routine)
-    
 
     return (<main className="guide-wrapper">
         <section className="view-guide">
@@ -104,7 +93,6 @@ export default function ViewGuidePage() {
                 <h5>{guide.description}</h5>
             </div>
             <h2>THE ROUTINE</h2>
-            {/* {routine.length !== 0 && ( <ExerciseListContainer blocks={routine} setBlocks={setRoutine}/>)} */}
             {routine.length !== 0 && (<ViewRoutine routine={routine} />)}
 
 

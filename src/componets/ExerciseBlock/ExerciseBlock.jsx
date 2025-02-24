@@ -20,13 +20,8 @@ export default function ExerciseBlock( {id, block, deleteFunction, setBlock} ){
         transform: CSS.Transform.toString(transform),
     };
 
-    function handleButtonPress(){
-        console.log("Routine button pressed");
-    }
-
     useEffect(() => {
         setBlock((prevData) => {
-            console.log(prevData, id);
             const newData = [...prevData];
             newData[id] = {
                 id: id,

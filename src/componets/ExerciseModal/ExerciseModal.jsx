@@ -14,7 +14,6 @@ const ExerciseModal = ({ exercises, closeModal, addExercise }) => {
     }
 
     function handleSelectExercise(id){
-        console.log(id);
         setExercise(id)
     }
 

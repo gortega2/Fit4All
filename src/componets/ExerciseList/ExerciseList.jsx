@@ -28,9 +28,7 @@ export default function ExerciseList({ exercises, blocks, deleteFunction, addExe
     function handleCloseModal(){
         setIsOpen(false);
     }
-
-    console.log('The length of exercise blocks is: ', blocks)
-
+    
     return (
         <div className='exercise-list ' >
             <h2 className='exercise-list__add-button' onClick={handleOpenModal}>+</h2>
