@@ -140,5 +140,3 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 ### https://www.youtube.com/watch?v=dL5SOdgMbRY
 Used for drag and drop list
-
-

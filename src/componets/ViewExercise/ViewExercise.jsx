@@ -3,11 +3,12 @@ import './ViewExercise.scss';
 
 const ViewExercise = ({ data }) => {
     const mockYoutube = "https://www.youtube.com/embed/sEfN2Gebvag?si=lINWsZJi4D2apJj9"
+    console.log(data);
 
     return (
         <div className='view-exercise'>
             <h1 className='view-exercise__header'>{data.name}</h1>
-            <iframe src={mockYoutube} className='view-exercise__video' allowFullScreen />
+            <iframe src={data.video_link} className='view-exercise__video' allowFullScreen />
             <div className='view-exercise__space-between'>
                 <div className='view-exercise__text-ctr view-exercise__text-ctr--start'>
                     <h3> Equipment </h3>

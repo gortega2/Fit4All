@@ -12,7 +12,7 @@ const ViewRoutine = ({ routine }) => {
             {routine.map((element, index) => {
                 return (
                     <Link to={`/exercises/${element.exercise.id}`} className='block' key={index}>
-                        <img className='block__thumbnail' src={mockThumbnail} />
+                        <img className='block__thumbnail' src={element.exercise.image_url} />
                         <div className='block__info-ctr'>
                             <h4>{element.exercise.name}</h4>
                             <div className='block__text-ctr block__text-ctr--start'>

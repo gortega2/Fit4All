@@ -48,7 +48,7 @@ export default function ExerciseBlock( {id, block, deleteFunction, setBlock} ){
     {...listeners}
     style={style} 
     className='block'>
-        <img className='block__thumbnail' src={'https://cdn.shopify.com/s/files/1/1497/9682/files/2_a09de347-1652-4b84-96bf-fdc8bbc42481.jpg?v=1648825457'} alt='exercise thumbnail'/>
+        <img className='block__thumbnail' src={block.exercise.image_url} alt='exercise thumbnail'/>
         <div className='block__info-ctr'>
             <h4>{block.exercise.name}</h4>
             <div className='block__text-ctr'>
