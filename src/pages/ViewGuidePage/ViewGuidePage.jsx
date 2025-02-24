@@ -64,8 +64,13 @@ export default function ViewGuidePage() {
         getExercises();
     }, [id])
 
+    // Currently there is a bug where routine does not render
+    // I think it's caused by this useEffect finishing before the useEffect above, I'm not sure how to fix this
     useEffect(() => {
-        ((guide.routine && exercises.length) && serializeExercise(guide.routine))
+        setTimeout(() => {
+            ((guide.routine && exercises.length) && serializeExercise(guide.routine))
+        }, 500)
+        
     }, [guide])
 
 
