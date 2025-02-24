@@ -102,6 +102,7 @@ export default function CreateGuideForm() {
             navigate(`/guides/${response.data.id}`)
         } catch (error) {
             console.error(`There was an error POSTing guide:\n${error}`)
+            alert(`There was an error POSTing guide:\n${error} `)
         }
         
     }
@@ -115,29 +116,29 @@ export default function CreateGuideForm() {
     }
 
     return (<form className="guide-form" onSubmit={handleSubmit}>
-        <h1>CREATE A NEW GUIDE</h1>
+        <h1 className="guide-form__header">CREATE A NEW GUIDE</h1>
         <div className="guide-form__ctr">
-            <label className="guide-form__label">
+            <label className="guide-form__label label">
                 Title
-                <input placeholder="Enter a title..." onChange={handleTitleChange} value={title} />
+                <input className='label' placeholder="Enter a title..." onChange={handleTitleChange} value={title} />
             </label>
 
-            <label className="guide-form__label">
+            <label className="guide-form__label label">
                 Description
-                <textarea className='guide-form__text-area' placeholder="Enter a description..." onChange={handleDescriptionChange} value={description} />
+                <textarea className='guide-form__text-area label' placeholder="Enter a description..." onChange={handleDescriptionChange} value={description} />
             </label>
 
-            <label className="guide-form__label">
+            <label className="guide-form__label label">
                 Authors
-                <Select options={authors} onChange={(choice) => setAuthor(choice.value)} value={authors.find((object) => object.value === author)} />
+                <Select className='guide-form__select' options={authors} onChange={(choice) => setAuthor(choice.value)} value={authors.find((object) => object.value === author)} />
             </label>
 
-            <label className="guide-form__label">
+            <label className="guide-form__label label">
                 Tags
-                <Select isMulti options={tags} onChange={(choice) => setSelectedTags(choice)} />
+                <Select className="guide-form__select" isMulti options={tags} onChange={(choice) => setSelectedTags(choice)} />
             </label>
         </div>
-        <h2>Set Routine</h2>
+        <h1 className="guide-form__header">Set Routine</h1>
         <ExerciseListContainer blocks={blocks} setBlock={setBlock}/>
 
         

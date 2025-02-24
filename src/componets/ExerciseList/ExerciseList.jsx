@@ -32,7 +32,7 @@ export default function ExerciseList({ exercises, blocks, deleteFunction, addExe
     console.log('The length of exercise blocks is: ', blocks)
 
     return (
-        <div className='exercise-list'>
+        <div className='exercise-list ' >
             <h2 className='exercise-list__add-button' onClick={handleOpenModal}>+</h2>
             <ReactModal isOpen={modalIsOpen} contentLabel='Test modal' style={customStyles}>
                 <ExerciseModal exercises={exercises} closeModal={handleCloseModal} addExercise={addExercise}/>

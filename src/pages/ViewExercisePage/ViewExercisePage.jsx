@@ -27,7 +27,7 @@ const ViewExercisePage = () => {
     console.log(data);
 
   return (
-    <main>
+    <main className='wrapper'>
         {data && (<ViewExercise data={data}/>)}
     </main>
   )

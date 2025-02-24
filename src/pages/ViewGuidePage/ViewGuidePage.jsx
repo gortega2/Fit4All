@@ -76,7 +76,7 @@ export default function ViewGuidePage() {
     console.log(exercises, routine)
     
 
-    return (<main>
+    return (<main className="guide-wrapper">
         <section className="view-guide">
             <div className="view-guide__header">
                 <div className="view-guide__header-ctr">

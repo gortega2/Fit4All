@@ -12,7 +12,7 @@
 
 main{
   width: 100%;
-  max-width: $desktop-breakpoint;
+  background-color: $alt-background;
   @include flex(start, center);
   flex-direction: column;
   flex-grow: 1;
