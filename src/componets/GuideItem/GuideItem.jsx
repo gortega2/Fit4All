@@ -10,7 +10,7 @@ export default function GuideItem({guide}){
             <div className='guide-item__top-ctr'>
                 <img className='guide-item__pfp'src={mockPfp} />
                 <div className='guide-item__text-ctr'>
-                    <h2>{guide.title}</h2>
+                    <h2 className='heading-text'>{guide.title}</h2>
                     <p>{guide.author}</p>
                 </div>
                 <p>{mockRating}</p>
