@@ -4,6 +4,7 @@
 .guide-list{
     @include flex(center, center);
     flex-direction: column;
+    max-width: $desktop-breakpoint;
     background-color: $alt-background;
     width: 100%;
     padding: 16px;

@@ -52,6 +52,11 @@
         }
 
     }
-
     
 }
+
+.header-wrapper{
+    width: 100vw;
+    background-color: $main-background;
+    @include flex(center, center)
+  }

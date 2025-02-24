@@ -6,7 +6,11 @@
     flex-direction: column;
     width: 100%;
     padding: 12px;
-    max-width: 720px;
+    max-width: 90vw;
+    background-color: white;
+    box-shadow: 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 24px;
 
     &__video{
         width: 100%;
@@ -47,6 +51,5 @@
         flex-wrap: wrap;
         width: 100%;
     }
-
-
 }
+

@@ -21,10 +21,6 @@ export default function GuideList(){
     return (<main>
         <section className='guide-list'>
             <div className='guide-list__header-ctr'>
-                {/* TODO: MAKE THESE BUTTONS CHANGE THE SORTING OF THE GUIDES */}
-                <p className='guide-list__header-button'>Top Guides</p>
-                <p className='guide-list__header-button'>Trending Guides</p>
-                <p className='guide-list__header-button'>Recent Guides</p>
             </div>
             <div className='guide-list__guide-ctr'>
                 {guides.map( (guide) => {
