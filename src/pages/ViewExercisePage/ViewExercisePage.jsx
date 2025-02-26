@@ -7,7 +7,7 @@ import ViewExercise from '../../componets/ViewExercise/ViewExercise'
 const ViewExercisePage = () => {
     const {id} = useParams()
     const [data, setData] = useState("");
-    
+
     async function getData(){
         try{
             const response = await API.getSingleExercise(id);
@@ -21,8 +21,6 @@ const ViewExercisePage = () => {
     useEffect( () => {
         getData();
     },[id])
-
-    console.log(data);
 
   return (
     <main className='wrapper'>
