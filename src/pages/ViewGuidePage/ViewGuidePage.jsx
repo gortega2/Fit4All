@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 export default function ViewGuidePage() {
 
     const tempThumbnail = 'http://127.0.0.1:8000/static/images/default-pfp.jpg'
-    const mockRating = 4.4
     const navigate = useNavigate();
 
 
@@ -19,6 +18,7 @@ export default function ViewGuidePage() {
     const [routine, setRoutine] = useState([])
     const { id } = useParams();
     const [exercises, setExercises] = useState([]);
+    const [isExercisesLoaded, setExercisesLoaded] = useState(false)
 
     async function getGuide() {
         try {
@@ -32,6 +32,7 @@ export default function ViewGuidePage() {
     async function getExercises() {
         const data = await API.getExercises();
         setExercises(data);
+        setExercisesLoaded(true);
     }
 
     async function deleteGuide() {
@@ -61,14 +62,9 @@ export default function ViewGuidePage() {
         getExercises();
     }, [id])
 
-    // Currently there is a bug where routine does not render
-    // I think it's caused by this useEffect finishing before the useEffect above, I'm not sure how to fix this
     useEffect(() => {
-        setTimeout(() => {
-            ((guide.routine && exercises.length) && serializeExercise(guide.routine))
-        }, 500)
-        
-    }, [guide])
+        ((guide.routine && exercises.length) && serializeExercise(guide.routine))
+    }, [isExercisesLoaded])
 
     return (<main className="guide-wrapper">
         <section className="view-guide">
@@ -86,14 +82,14 @@ export default function ViewGuidePage() {
                             <p>Created: {guide.created_at} | Updated at: {guide.updated_at}</p>
                         </div>
                     </div>
-                    <p>Rating: {mockRating}</p>
+                    <p>Rating: {guide.rating}</p>
                 </div>
             </div>
             <div className="view-guide__description">
                 <h5>{guide.description}</h5>
             </div>
             <h2>THE ROUTINE</h2>
-            {routine.length !== 0 && (<ViewRoutine routine={routine} />)}
+            {isExercisesLoaded && (<ViewRoutine routine={routine} />)}
 
 
 
