@@ -7,9 +7,7 @@ import ViewExercise from '../../componets/ViewExercise/ViewExercise'
 const ViewExercisePage = () => {
     const {id} = useParams()
     const [data, setData] = useState("");
-
-    const mockYoutube = "https://www.youtube.com/embed/sEfN2Gebvag?si=lINWsZJi4D2apJj9"
-
+    
     async function getData(){
         try{
             const response = await API.getSingleExercise(id);
