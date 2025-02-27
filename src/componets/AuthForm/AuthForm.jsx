@@ -66,13 +66,13 @@ export default function AuthForm() {
 
                 <label className="auth-card__label">
                     Password
-                    <input type="text" value={formData.password} onChange={handleChange} placeholder="Enter password" className="auth-card__input" name='password'/>
+                    <input type="password" value={formData.password} onChange={handleChange} placeholder="Enter password" className="auth-card__input" name='password'/>
                 </label>
 
                 {isSignUp && (
                     <label className="auth-card__label">
                     Retype Password
-                    <input type="text" value={formData.retypePassword} onChange={handleChange} placeholder="Retype your password" className="auth-card__input" name='retypePassword'/>
+                    <input type="password" value={formData.retypePassword} onChange={handleChange} placeholder="Retype your password" className="auth-card__input" name='retypePassword'/>
                 </label>
                 )}
                 {error && <p className="auth-card__error-message">{error}</p>}
