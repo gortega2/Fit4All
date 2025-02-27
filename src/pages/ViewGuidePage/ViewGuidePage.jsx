@@ -6,6 +6,7 @@ import './ViewGuidePage.scss';
 import ViewRoutine from "../../componets/ViewRoutine/ViewRoutine";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Rating } from "react-simple-star-rating";
 
 
 export default function ViewGuidePage() {
@@ -82,7 +83,7 @@ export default function ViewGuidePage() {
                             <p>Created: {guide.created_at} | Updated at: {guide.updated_at}</p>
                         </div>
                     </div>
-                    <p>Rating: {guide.rating}</p>
+                    <Rating initialValue={guide.rating} readonly={true}/>
                 </div>
             </div>
             <div className="view-guide__description">
