@@ -36,9 +36,9 @@ export default function ExerciseList({ exercises, blocks, deleteFunction, addExe
                 <ExerciseModal exercises={exercises} closeModal={handleCloseModal} addExercise={addExercise}/>
             </ReactModal>
             <SortableContext items={blocks} strategy={verticalListSortingStrategy}>
-                {blocks.map((block) => {
+                {blocks.map((block, index) => {
                     return (<ExerciseBlock id={block.id} block={block} key={block.id} 
-                    deleteFunction={deleteFunction} setBlock={setBlock}/>)
+                    deleteFunction={deleteFunction} setBlock={setBlock} index={index}/>)
                 })}
             </SortableContext>
             {(blocks.length > 0 && <button type="submit" className="cta-action guide-form__submit">SUBMIT</button>)}

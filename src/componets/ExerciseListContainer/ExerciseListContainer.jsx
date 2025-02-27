@@ -8,6 +8,7 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
     
 
     const [exercises, setExercises] = useState([]);
+    const [idcounter, setIdCounter] = useState(0);
     const sensors = useSensors(
         useSensor(PointerSensor, {activationConstraint: {
             distance: 5
@@ -41,7 +42,6 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
         setBlock(blocks => {
             const origPos = getBlockPos(active.id);
             const newPos = getBlockPos(over.id);
-
             return arrayMove(blocks, origPos, newPos);
         })
     }
@@ -49,10 +49,11 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
     function addBlock(id){
 
         const addedExercise = exercises.find(exercise => exercise.id == id);
+        setIdCounter(counter => counter + 1);
 
         setBlock( (blocks) => {
             return [...blocks, {
-                id: blocks.length,
+                id: idcounter,
                 exercise: addedExercise,
                 reps: 1,
                 weight: 1,
@@ -64,15 +65,8 @@ export default function ExerciseListContainer({ blocks, setBlock }) {
 
     }
 
-    function updateIds(){
-        for (let i =0; i < blocks.length; i++){
-            blocks[i].id = i;
-        }
-    }
-
     function deleteBlock(id){
         const newBlock = blocks.filter( block => block.id !== id)
-        updateIds()
         setBlock(newBlock)
 
     }

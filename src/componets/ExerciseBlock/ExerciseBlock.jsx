@@ -5,14 +5,14 @@ import { CSS } from '@dnd-kit/utilities';
 import NumberField from '../NumberField/NumberField';
 import { useState, useEffect } from 'react';
 
-export default function ExerciseBlock( {id, block, deleteFunction, setBlock} ){
+export default function ExerciseBlock( {id, block, deleteFunction, setBlock, index} ){
 
     const [sets, setSets] = useState(block.sets);
     const [reps, setReps] = useState(block.reps);
     const [weight, setWeight] = useState(block.weight);
     const [duration, setDuration] = useState(block.duration);
 
-   const {attributes, listeners, setNodeRef, transform, transition}
+   const {attributes, listeners, setNodeRef, transform, transition,}
     = useSortable({id})
 
     const style = {
@@ -22,8 +22,9 @@ export default function ExerciseBlock( {id, block, deleteFunction, setBlock} ){
 
     useEffect(() => {
         setBlock((prevData) => {
+        
             const newData = [...prevData];
-            newData[id] = {
+            newData[index] = {
                 id: id,
                 reps: reps,
                 weight: weight,
@@ -34,8 +35,6 @@ export default function ExerciseBlock( {id, block, deleteFunction, setBlock} ){
             return newData;
         })
     }, [sets, reps, weight, duration])
-
-
 
     return (<div 
     ref={setNodeRef} 
