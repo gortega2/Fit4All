@@ -2,6 +2,28 @@ import React from 'react';
 import './ViewExercise.scss';
 
 const ViewExercise = ({ data }) => {
+
+    const muscleGroups = {
+        'ABDR': 'Abductors',
+        "ADDR": 'Adductors',
+        "ABS": "Abs",
+        "BACK": "Back",
+        "BCPS": "Biceps",
+        'CLVS': 'Calves',
+        "CHST": 'Chest',
+        'FARM': 'Forearms',
+        "GLTS": 'Glutes',
+            "HMSTR": 'Hamstrings',
+        'LBACK': 'Lower Back',
+        'NCK': 'Neck',
+        "QDCPS": 'Quadriceps',
+        "SHDR": 'Shoulders',
+        'TRPS': 'Trapezius',
+        "TRCPS": 'Triceps',
+    }
+
+
+
     return (
         <div className='view-exercise'>
             <h1 className='view-exercise__header'>{data.name}</h1>
@@ -16,7 +38,7 @@ const ViewExercise = ({ data }) => {
                         {data.equipment.map((equipment, index) => {
                         return (
                             <div key={index} className='view-exercise__center'>
-                                <p>{equipment}</p>
+                                <p>{equipment.label}</p>
                             </div>
                         )
                     })}
@@ -28,7 +50,7 @@ const ViewExercise = ({ data }) => {
                     {data.muscle_group.map((muscle, index) => {
                         return (
                             <div key={index} className='view-exercise__center'>
-                                <p>{muscle}</p>
+                                <p>{muscleGroups[muscle]}</p>
                             </div>
                         )
                     })}
